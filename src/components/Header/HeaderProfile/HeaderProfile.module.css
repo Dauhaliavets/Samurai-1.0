@@ -1,0 +1,12 @@
+.headerProfile {
+    display: flex;
+    align-items: center;
+}
+.headerProfile img {
+    height: 40px;
+    width: 40px;
+}
+.userName{
+    font-size: 16px;
+    font-style: italic;
+}
