@@ -5,4 +5,23 @@
 
 .descriptionBlock{
     padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.userAvatar{
+    width: 300px;
+    height: 300px;
+    margin-right: 40px;
+}
+
+.fullName{
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.contactsList {
+    list-style: none;
+    padding-left: 10px;
+    font-size: 14px;
 }
