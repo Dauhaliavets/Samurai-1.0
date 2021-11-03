@@ -50,7 +50,7 @@ const Users = (props) => {
                                             withCredentials: true,
                                             headers: {
                                                 'API-KEY': '122afaea-9ff0-4e4f-b222-1fc99b56df38',
-                                            },
+                                            }
                                         }).then(response => {
                                             if (response.data.resultCode === 0) {
                                                 props.unfollow(u.id)
@@ -64,7 +64,7 @@ const Users = (props) => {
                                             withCredentials: true,
                                             headers: {
                                                 'API-KEY': '122afaea-9ff0-4e4f-b222-1fc99b56df38',
-                                            },
+                                            }
                                         }).then(response => {
                                             if (response.data.resultCode === 0) {
                                                 props.follow(u.id)
