@@ -4,10 +4,20 @@
     background-color: #0051b34d;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-.header img {
+.headerLogo {
+    display: flex;
+    align-items: center;
+}
+
+.headerLogo img {
     height: 40px;
     width: 40px;
     margin: 0px 20px;
+}
+
+.loginBlock {
+    background-color: aquamarine;
 }
