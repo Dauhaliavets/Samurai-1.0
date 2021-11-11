@@ -1,5 +1,6 @@
 import styles from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
 
@@ -17,11 +18,11 @@ const ProfileInfo = (props) => {
 
     return (
         <div>
-            <div>
-                <img
-                    src='https://p.bigstockphoto.com/vVu7XprxSayr867oA3KQ_bigstock-Colorful-fruit-pattern-of-fres-282127069.jpg'
-                    className={styles.profileInfoImage} alt='profileInfoImage'/>
-            </div>
+            {/*<div>*/}
+            {/*    <img*/}
+            {/*        src='https://p.bigstockphoto.com/vVu7XprxSayr867oA3KQ_bigstock-Colorful-fruit-pattern-of-fres-282127069.jpg'*/}
+            {/*        className={styles.profileInfoImage} alt='profileInfoImage'/>*/}
+            {/*</div>*/}
             <div className={styles.descriptionBlock}>
                 <img src={props.profile.photos.large} className={styles.userAvatar} alt='userAvatar'/>
                 <div className={styles.descriptionUser}>
@@ -32,6 +33,7 @@ const ProfileInfo = (props) => {
                     </ul>
                 </div>
 
+                <ProfileStatus status={'Bla bal absd wrfz'}/>
 
             </div>
         </div>
