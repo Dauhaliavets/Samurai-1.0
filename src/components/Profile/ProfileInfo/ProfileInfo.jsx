@@ -13,7 +13,8 @@ const ProfileInfo = (props) => {
     let contacts = [];
     for (let key in props.profile.contacts) {
         contacts.push(<li
-            className={styles.contact}>{key}: {(props.profile.contacts[key]) ? props.profile.contacts[key] : 'no'}</li>)
+            className={styles.contact}
+        key={key}>{key}: {(props.profile.contacts[key]) ? props.profile.contacts[key] : 'no'}</li>)
     }
 
     return (
@@ -32,10 +33,8 @@ const ProfileInfo = (props) => {
                         {contacts}
                     </ul>
                 </div>
-
-                <ProfileStatus status={'Bla bal absd wrfz'}/>
-
             </div>
+            <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
         </div>
     )
 };
