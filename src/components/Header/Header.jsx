@@ -10,8 +10,12 @@ const Header = (props) => {
                 My friends
             </div>
             <div className={styles.loginBlock}>
-
-                {props.isAuth ? <HeaderProfile login={props.login} userPhoto={props.userPhoto}/> : <NavLink to={'/login'}>Login</NavLink>}
+                {props.isAuth
+                    ? <div>
+                        <HeaderProfile login={props.login} userPhoto={props.userPhoto}></HeaderProfile>
+                        <button onClick={props.logout}>Log out</button>
+                        </div>
+                    : <NavLink to={'/login'}>Login</NavLink>}
             </div>
         </header>
     );
