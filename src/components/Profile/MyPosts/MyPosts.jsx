@@ -7,32 +7,47 @@ import {Textarea} from "../../common/FormsControls/FormsControls";
 
 const maxLength10 = maxLengthCreator(10);
 
-const MyPosts = (props) => {
+class MyPosts extends React.Component {
 
-    const postsElements = props.postsData.map((item) => <Post
-        key={item.id}
-        message={item.message}
-        likesCount={item.likesCount}/>
-    );
+    // componentDidMount() {
+    //     setTimeout(() => {
+    //         this.setState({a: 12})
+    //     }, 3000);
+    // }
 
-    let onAddPost = (values) => {
-        props.addPost(values.newPostTest);
-    };
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps != this.props || nextState != this.state;
+    }
 
-    return (
-        <div className={styles.postsBlock}>
-            <h3>My posts</h3>
+    render() {
 
-            <AddNewPostFormRedux onSubmit={onAddPost}/>
+        console.log("RENDER");
 
-            <div>
-                New post
+        const postsElements = this.props.postsData.map((item) => <Post
+            key={item.id}
+            message={item.message}
+            likesCount={item.likesCount}/>
+        );
+
+        let onAddPost = (values) => {
+            this.props.addPost(values.newPostTest);
+        };
+
+        return (
+            <div className={styles.postsBlock}>
+                <h3>My posts</h3>
+
+                <AddNewPostFormRedux onSubmit={onAddPost}/>
+
+                <div>
+                    New post
+                </div>
+                <div className={styles.posts}>
+                    {postsElements}
+                </div>
             </div>
-            <div className={styles.posts}>
-                {postsElements}
-            </div>
-        </div>
-    )
+        )
+    }
 }
 
 const AddNewPostForm = (props) => {
