@@ -2,47 +2,40 @@ import React from 'react';
 import Post from './Post/Post';
 import styles from './MyPosts.module.css';
 import {Field, reduxForm} from "redux-form";
-import { maxLengthCreator, required } from "../../../utils/validators/validators";
+import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {Textarea} from "../../common/FormsControls/FormsControls";
 
 const maxLength10 = maxLengthCreator(10);
 
-class MyPosts extends React.PureComponent {
+const MyPosts = React.memo(props => {
 
-    // shouldComponentUpdate(nextProps, nextState, nextContext) {
-    //     return nextProps != this.props || nextState != this.state;
-    // }
+    console.log("RENDER");
 
-    render() {
+    const postsElements = props.postsData.map((item) => <Post
+        key={item.id}
+        message={item.message}
+        likesCount={item.likesCount}/>
+    );
 
-        console.log("RENDER");
+    let onAddPost = (values) => {
+        props.addPost(values.newPostTest);
+    };
 
-        const postsElements = this.props.postsData.map((item) => <Post
-            key={item.id}
-            message={item.message}
-            likesCount={item.likesCount}/>
-        );
+    return (
+        <div className={styles.postsBlock}>
+            <h3>My posts</h3>
 
-        let onAddPost = (values) => {
-            this.props.addPost(values.newPostTest);
-        };
+            <AddNewPostFormRedux onSubmit={onAddPost}/>
 
-        return (
-            <div className={styles.postsBlock}>
-                <h3>My posts</h3>
-
-                <AddNewPostFormRedux onSubmit={onAddPost}/>
-
-                <div>
-                    New post
-                </div>
-                <div className={styles.posts}>
-                    {postsElements}
-                </div>
+            <div>
+                New post
             </div>
-        )
-    }
-}
+            <div className={styles.posts}>
+                {postsElements}
+            </div>
+        </div>
+    )
+});
 
 const AddNewPostForm = (props) => {
     return (
