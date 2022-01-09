@@ -7,17 +7,11 @@ import {Textarea} from "../../common/FormsControls/FormsControls";
 
 const maxLength10 = maxLengthCreator(10);
 
-class MyPosts extends React.Component {
+class MyPosts extends React.PureComponent {
 
-    // componentDidMount() {
-    //     setTimeout(() => {
-    //         this.setState({a: 12})
-    //     }, 3000);
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //     return nextProps != this.props || nextState != this.state;
     // }
-
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return nextProps != this.props || nextState != this.state;
-    }
 
     render() {
 
